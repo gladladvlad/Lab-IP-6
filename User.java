@@ -47,8 +47,7 @@ public class User {
         this.inbox.add(newEmail);
     }
     
-    boolean send (Email email) {
-return true;        
-//return this.client.send(email);
+    boolean send (Email email) {     
+        return this.client.Send(email);
     }
 }
