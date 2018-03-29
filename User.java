@@ -29,7 +29,6 @@ public class User {
         this.username = newUsername;
         this.nume = newNume;
    
-        contacts = new ArrayList<>();
         emailsOut = new ArrayList<>();
         emailsIn = new ArrayList<>();
         contacts = new ArrayList<>();
