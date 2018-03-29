@@ -29,7 +29,6 @@ public class User {
         this.username = newUsername;
         this.nume = newNume;
    
-        contacts = new ArrayList<>();
         emailsOut = new ArrayList<>();
         emailsIn = new ArrayList<>();
         contacts = new ArrayList<>();
@@ -39,8 +38,8 @@ public class User {
         this.contacts.add(newContact);
     }
     
-    void createEmail (String from, String to, String content) {
-        Email newEmail = this.client.createEmail(from, to, content));
+    void createEmail (String from, String to, String subject, String content) {
+        Email newEmail = new Email(subject, from, to, content);
         this.emailsOut.add(newEmail);
     }
     
@@ -49,6 +48,7 @@ public class User {
     }
     
     boolean send (Email email) {
-        return this.client.send(email);
+return true;        
+//return this.client.send(email);
     }
 }
