@@ -1,0 +1,21 @@
+
+package send;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class SendTest {
+    
+  @Test
+    public void TestIfMailIsSent(){
+        //arrange
+        Email mail = new Email("asdas", "a@g.com", "b@g.com", "Content");
+        Client client = new Client();
+        //act
+        boolean rez = client.Send(mail);
+        //assert
+        Assert.assertTrue(false==rez);
+    }
+       
+}
+    

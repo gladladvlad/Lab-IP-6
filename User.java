@@ -34,17 +34,20 @@ public class User {
         contacts = new ArrayList<>();
     }
     
-    void addContact (User newContact) {
+    boolean addContact (User newContact) {
         this.contacts.add(newContact);
+        return true;
     }
     
-    void createEmail (String from, String to, String subject, String content) {
+    boolean createEmail (String from, String to, String subject, String content) {
         Email newEmail = new Email(subject, from, to, content);
         this.emailsOut.add(newEmail);
+        return true;
     }
     
-    void addEmail (Email newEmail) {
+    boolean addEmail (Email newEmail) {
         this.inbox.add(newEmail);
+        return true;
     }
     
     boolean send (Email email) {     
