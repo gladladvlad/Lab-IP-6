@@ -28,7 +28,6 @@ public class Client {
    boolean Login(String username, String password)
    {
        Iterator<User> iterator = users.iterator();
-       int index = i;
        while(iterator.hasNext())
        {
            User currentUser = iterator.next;
@@ -37,5 +36,17 @@ public class Client {
        }      
        return false;
    }
-    
+       
+   boolean Send(Email email){
+       String username = email.getFrom();
+       
+       Iterator<User> iterator = users.iterator();
+       while(iterator.hasNext())
+       {
+           User currentUser = iterator.next;
+           if (currentUser.username == username)
+               return true;
+       }      
+       return false;
+   }
 }
