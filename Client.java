@@ -12,6 +12,10 @@ import java.util.*;
 public class Client {
     private ArrayList<User> users;
 
+    public Client(){
+        this.users = new ArrayList<User>();
+    }
+    
     public ArrayList<User> getUsers() {
         return users;
     }
@@ -20,9 +24,21 @@ public class Client {
         this.users = users;
     }
     
-   User Register(String username, String password, String name){
-       User userNew = new User(username, password, name, this);
-       return userNew;
+   boolean Register(String username, String password, String name){
+       //User userNew = new User(username, password, name, this);
+       
+       String newUsername = username;
+       
+       Iterator<User> iterator = users.iterator();
+       while(iterator.hasNext())
+       {
+           User currentUser = iterator.next();
+           if (currentUser.username.equals(username))
+               return false;
+       }
+       
+       this.users.add(new User(username, password, name, this));
+       return true;
    }
     
    boolean Login(String username, String password)
@@ -30,8 +46,8 @@ public class Client {
        Iterator<User> iterator = users.iterator();
        while(iterator.hasNext())
        {
-           User currentUser = iterator.next;
-           if (currentUser.username == username && currentUser.password == password )
+           User currentUser = iterator.next();
+           if (currentUser.username.equals(username) && currentUser.password.equals(password) )
                return true;
        }      
        return false;
@@ -43,8 +59,10 @@ public class Client {
        Iterator<User> iterator = users.iterator();
        while(iterator.hasNext())
        {
-           User currentUser = iterator.next;
-           if (currentUser.username == username)
+           User currentUser = iterator.next();
+           if (currentUser.username.equals(username))
+               
+               currentUser.addEmail(email);
                return true;
        }      
        return false;
