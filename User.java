@@ -49,5 +49,6 @@ public class User {
     }
     
     boolean send (Email email) {
+        return this.client.send(email);
     }
 }
